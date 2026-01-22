@@ -46,12 +46,14 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                <div className="hidden md:flex items-center space-x-8">
-                    <a href="index.html#products" className="text-gray-300 hover:text-yellow-400 transition-colors text-sm font-medium tracking-wide">PRODUCTS</a>
+               <div className="hidden md:flex items-center space-x-8">
+                    {/* CHANGED LINK BELOW */}
+                    <a href="store.html" className="text-gray-300 hover:text-yellow-400 transition-colors text-sm font-medium tracking-wide">PRODUCTS</a>
+                    <a href="index.html#services" className="text-gray-300 hover:text-yellow-400 transition-colors text-sm font-medium tracking-wide">SERVICES</a>
                     <a href="kickstarter.html" className="text-yellow-400 font-bold hover:text-white transition-colors text-sm tracking-wide flex items-center gap-1">
                         <Icons.Rocket size={16} /> KICKSTARTER
                     </a>
-                </div>
+               </div>
 
                 <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white focus:outline-none">
                     {isOpen ? <Icons.X /> : <Icons.Menu />}
@@ -59,13 +61,14 @@ const Navbar = () => {
             </div>
              {/* Mobile Menu */}
              {isOpen && (
-                <div className="md:hidden bg-zinc-900 absolute top-full left-0 w-full border-b border-zinc-800 shadow-2xl animate-fade-in">
-                    <div className="flex flex-col p-6 space-y-4">
-                        <a href="index.html#products" className="text-white font-medium">Shop Products</a>
-                        <a href="kickstarter.html" className="text-yellow-400 font-bold">Kickstarter</a>
-                    </div>
-                </div>
-            )}
+    <div className="md:hidden bg-zinc-900 absolute top-full left-0 w-full border-b border-zinc-800 shadow-2xl animate-fade-in">
+        <div className="flex flex-col p-6 space-y-4">
+            {/* CHANGED LINK BELOW */}
+            <a href="store.html" className="text-white font-medium">Shop Products</a>
+            <a href="kickstarter.html" className="text-yellow-400 font-bold">Kickstarter</a>
+        </div>
+    </div>
+)}
         </nav>
     );
 };
