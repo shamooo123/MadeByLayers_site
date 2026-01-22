@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Cookie Cutter Set | MadeByLayers</title>
+    <title>Valentines Cookie Cutter Set | MadeByLayers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -19,12 +19,10 @@
         const { Navbar, Footer, Icons } = window.MBL;
 
         const ProductDetail = () => {
-            // UPDATED IMAGE PATHS ARRAY
+            // Using the single image for now, duplicated for gallery effect
             const images = [
-                "./images/vehicle-set-main.jpg",
-                "./images/vehicle-set-cars.jpg",
-                "./images/vehicle-set-planes.jpg",
-                "./images/vehicle-set-dough.jpg"
+                "./images/valentines-set-main.jpg",
+                "./images/valentines-set-main.jpg" 
             ];
             const [activeImage, setActiveImage] = useState(0);
 
@@ -32,19 +30,19 @@
                 <div className="pt-32 pb-24 min-h-screen">
                     <div className="container mx-auto px-6">
                         <div className="text-sm text-gray-500 mb-8 flex gap-2">
-                            <a href="index.html" className="hover:text-yellow-400">Home</a> / <span className="text-gray-400">Vehicle Cookie Cutter Set</span>
+                            <a href="index.html" className="hover:text-yellow-400">Home</a> / <span className="text-gray-400">Valentines Cookie Cutter Set</span>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12">
                             {/* Gallery */}
                             <div>
-                                <div className="aspect-square bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 mb-4 p-4 flex items-center justify-center">
-                                    <img src={images[activeImage]} className="w-full h-full object-contain" onError={(e) => {e.target.src='https://placehold.co/600x600/222/FFF?text=Load+Error'}} />
+                                <div className="aspect-square bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 mb-4 p-0 flex items-center justify-center">
+                                    <img src={images[activeImage]} className="w-full h-full object-cover" onError={(e) => {e.target.src='https://placehold.co/600x600/222/FFF?text=Load+Error'}} />
                                 </div>
                                 <div className="grid grid-cols-4 gap-4">
                                     {images.map((img, idx) => (
-                                        <button key={idx} onClick={() => setActiveImage(idx)} className={`aspect-square rounded-lg overflow-hidden border-2 p-1 bg-zinc-900 ${activeImage === idx ? 'border-yellow-400' : 'border-transparent'}`}>
-                                            <img src={img} className="w-full h-full object-contain" onError={(e) => {e.target.style.opacity=0.2}} />
+                                        <button key={idx} onClick={() => setActiveImage(idx)} className={`aspect-square rounded-lg overflow-hidden border-2 bg-zinc-900 ${activeImage === idx ? 'border-yellow-400' : 'border-transparent'}`}>
+                                            <img src={img} className="w-full h-full object-cover" onError={(e) => {e.target.style.opacity=0.2}} />
                                         </button>
                                     ))}
                                 </div>
@@ -52,7 +50,10 @@
 
                             {/* Info */}
                             <div>
-                                <h1 className="text-4xl font-bold text-white mb-4">Vehicle Cookie Cutter Set (6pc)</h1>
+                                <div className="mb-4">
+                                    <span className="bg-pink-500/10 text-pink-500 text-xs font-bold px-3 py-1 rounded-full border border-pink-500/20">LIMITED EDITION</span>
+                                </div>
+                                <h1 className="text-4xl font-bold text-white mb-4">Valentines Cookie Cutter Set (3pc)</h1>
                                 <div className="flex items-center gap-4 mb-6">
                                     <span className="text-3xl font-bold text-yellow-400">£12.99</span>
                                     <div className="flex text-yellow-400 items-center">
@@ -61,16 +62,16 @@
                                         <Icons.Star size={16} fill="currentColor" />
                                         <Icons.Star size={16} fill="currentColor" />
                                         <Icons.Star size={16} fill="currentColor" />
-                                        <span className="text-gray-500 text-sm ml-2">(124 eBay Reviews)</span>
+                                        <span className="text-gray-500 text-sm ml-2">(Five Star Seller)</span>
                                     </div>
                                 </div>
                                 <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                                    Rev up your baking with this 6-piece transport set. Features 3 high-detail car stamps (Supercar, Hatchback, SUV) and 3 sharp fighter jet outlines. Perfect for birthday parties and car enthusiasts. Printed in food-safe PLA.
+                                    Get ready for February 14th! This set includes three highly detailed embossers: <strong>"XOXO"</strong>, <strong>"GALENTINES"</strong>, and <strong>"LOVE YOU"</strong>. Perfect for fondant, cookies, and sweet treats.
                                 </p>
                                 
                                 {/* eBay Link Button */}
-                                <a href="https://www.ebay.co.uk/usr/madebylayers" target="_blank" className="w-full bg-yellow-400 text-black font-bold py-4 rounded-lg hover:bg-yellow-500 transition-transform hover:scale-[1.02] mb-4 flex justify-center items-center gap-2">
-                                    <Icons.ShoppingBag /> Buy on eBay
+                                <a href="https://www.ebay.co.uk/itm/206015245594" target="_blank" className="w-full bg-yellow-400 text-black font-bold py-4 rounded-lg hover:bg-yellow-500 transition-transform hover:scale-[1.02] mb-4 flex justify-center items-center gap-2">
+                                    <Icons.ShoppingBag /> Buy Now on eBay
                                 </a>
                                 <div className="flex items-center gap-2 text-sm text-gray-500 justify-center">
                                     <Icons.Lock size={14} /> Secure Transaction via eBay
