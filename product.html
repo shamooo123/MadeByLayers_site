@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Cookie Cutter Set | MadeByLayers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-white">
+    <div id="root"></div>
+
+    <script type="text/babel" src="components.js"></script>
+    <script type="text/babel">
+        const { useState } = React;
+        const { Navbar, Footer, Icons } = window.MBL;
+
+        const ProductDetail = () => {
+            const images = ["./DSC_1973.jpg", "./DSC_1981.jpg"];
+            const [activeImage, setActiveImage] = useState(0);
+
+            return (
+                <div className="pt-32 pb-24 min-h-screen">
+                    <div className="container mx-auto px-6">
+                        <div className="text-sm text-gray-500 mb-8 flex gap-2">
+                            <a href="index.html" className="hover:text-yellow-400">Home</a> / <span className="text-gray-400">Vehicle Cookie Cutter Set</span>
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-12">
+                            {/* Gallery */}
+                            <div>
+                                <div className="aspect-square bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 mb-4">
+                                    <img src={images[activeImage]} className="w-full h-full object-cover" onError={(e) => {e.target.src='https://placehold.co/600x600?text=Image+Error'}} />
+                                </div>
+                                <div className="flex gap-4">
+                                    {images.map((img, idx) => (
+                                        <button key={idx} onClick={() => setActiveImage(idx)} className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${activeImage === idx ? 'border-yellow-400' : 'border-transparent'}`}>
+                                            <img src={img} className="w-full h-full object-cover" />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Info */}
+                            <div>
+                                <h1 className="text-4xl font-bold text-white mb-4">Vehicle Cookie Cutter Set (6pc)</h1>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <span className="text-3xl font-bold text-yellow-400">£12.99</span>
+                                    <div className="flex text-yellow-400">
+                                        {[...Array(5)].map((_, i) => <Icons.Star key={i} size={16} fill="currentColor" />)}
+                                        <span className="text-gray-500 text-sm ml-2">(124 eBay Reviews)</span>
+                                    </div>
+                                </div>
+                                <p className="text-gray-400 text-lg mb-8">
+                                    Rev up your baking with this 6-piece transport set. Features high-detail car stamps and sharp fighter jet outlines. Printed in food-safe PLA.
+                                </p>
+                                <button className="w-full bg-yellow-400 text-black font-bold py-4 rounded-lg hover:bg-yellow-500 transition-all mb-4 flex justify-center items-center gap-2">
+                                    <Icons.ShoppingBag /> Add to Cart
+                                </button>
+                                <div className="flex items-center gap-2 text-sm text-gray-500 justify-center">
+                                    <Icons.Lock size={14} /> Secure Checkout via Stripe
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => (
+            <div className="min-h-screen">
+                <Navbar />
+                <ProductDetail />
+                <Footer />
+            </div>
+        );
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
