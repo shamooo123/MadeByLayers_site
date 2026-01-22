@@ -19,7 +19,13 @@
         const { Navbar, Footer, Icons } = window.MBL;
 
         const ProductDetail = () => {
-            const images = ["./DSC_1973.jpg", "./DSC_1981.jpg"];
+            // UPDATED IMAGE PATHS ARRAY
+            const images = [
+                "./images/vehicle-set-main.jpg",
+                "./images/vehicle-set-cars.jpg",
+                "./images/vehicle-set-planes.jpg",
+                "./images/vehicle-set-dough.jpg"
+            ];
             const [activeImage, setActiveImage] = useState(0);
 
             return (
@@ -32,13 +38,13 @@
                         <div className="grid lg:grid-cols-2 gap-12">
                             {/* Gallery */}
                             <div>
-                                <div className="aspect-square bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 mb-4">
-                                    <img src={images[activeImage]} className="w-full h-full object-cover" onError={(e) => {e.target.src='https://placehold.co/600x600?text=Image+Error'}} />
+                                <div className="aspect-square bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 mb-4 p-4 flex items-center justify-center">
+                                    <img src={images[activeImage]} className="w-full h-full object-contain" onError={(e) => {e.target.src='https://placehold.co/600x600/222/FFF?text=Load+Error'}} />
                                 </div>
-                                <div className="flex gap-4">
+                                <div className="grid grid-cols-4 gap-4">
                                     {images.map((img, idx) => (
-                                        <button key={idx} onClick={() => setActiveImage(idx)} className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${activeImage === idx ? 'border-yellow-400' : 'border-transparent'}`}>
-                                            <img src={img} className="w-full h-full object-cover" />
+                                        <button key={idx} onClick={() => setActiveImage(idx)} className={`aspect-square rounded-lg overflow-hidden border-2 p-1 bg-zinc-900 ${activeImage === idx ? 'border-yellow-400' : 'border-transparent'}`}>
+                                            <img src={img} className="w-full h-full object-contain" onError={(e) => {e.target.style.opacity=0.2}} />
                                         </button>
                                     ))}
                                 </div>
@@ -49,19 +55,25 @@
                                 <h1 className="text-4xl font-bold text-white mb-4">Vehicle Cookie Cutter Set (6pc)</h1>
                                 <div className="flex items-center gap-4 mb-6">
                                     <span className="text-3xl font-bold text-yellow-400">£12.99</span>
-                                    <div className="flex text-yellow-400">
-                                        {[...Array(5)].map((_, i) => <Icons.Star key={i} size={16} fill="currentColor" />)}
+                                    <div className="flex text-yellow-400 items-center">
+                                        <Icons.Star size={16} fill="currentColor" />
+                                        <Icons.Star size={16} fill="currentColor" />
+                                        <Icons.Star size={16} fill="currentColor" />
+                                        <Icons.Star size={16} fill="currentColor" />
+                                        <Icons.Star size={16} fill="currentColor" />
                                         <span className="text-gray-500 text-sm ml-2">(124 eBay Reviews)</span>
                                     </div>
                                 </div>
-                                <p className="text-gray-400 text-lg mb-8">
-                                    Rev up your baking with this 6-piece transport set. Features high-detail car stamps and sharp fighter jet outlines. Printed in food-safe PLA.
+                                <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                                    Rev up your baking with this 6-piece transport set. Features 3 high-detail car stamps (Supercar, Hatchback, SUV) and 3 sharp fighter jet outlines. Perfect for birthday parties and car enthusiasts. Printed in food-safe PLA.
                                 </p>
-                                <button className="w-full bg-yellow-400 text-black font-bold py-4 rounded-lg hover:bg-yellow-500 transition-all mb-4 flex justify-center items-center gap-2">
-                                    <Icons.ShoppingBag /> Add to Cart
-                                </button>
+                                
+                                {/* eBay Link Button */}
+                                <a href="https://www.ebay.co.uk/usr/madebylayers" target="_blank" className="w-full bg-yellow-400 text-black font-bold py-4 rounded-lg hover:bg-yellow-500 transition-transform hover:scale-[1.02] mb-4 flex justify-center items-center gap-2">
+                                    <Icons.ShoppingBag /> Buy on eBay
+                                </a>
                                 <div className="flex items-center gap-2 text-sm text-gray-500 justify-center">
-                                    <Icons.Lock size={14} /> Secure Checkout via Stripe
+                                    <Icons.Lock size={14} /> Secure Transaction via eBay
                                 </div>
                             </div>
                         </div>
